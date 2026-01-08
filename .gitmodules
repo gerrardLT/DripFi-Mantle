@@ -1,0 +1,9 @@
+[submodule "mantle-dca/lib/openzeppelin-contracts"]
+	path = mantle-dca/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "mantle-dca/lib/chainlink"]
+	path = mantle-dca/lib/chainlink
+	url = https://github.com/smartcontractkit/chainlink
+[submodule "mantle-dca/lib/forge-std"]
+	path = mantle-dca/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std

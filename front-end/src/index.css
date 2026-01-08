@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Minimalism (Deep Space) Design System
+ * Deepest black/navy base with electric violet and neon cyan accents
+ * Glassmorphism, soft glows, geometric precision
+ * All colors MUST be HSL.
+ */
+
+@layer base {
+  :root {
+    /* Base Colors - Deep Space (#0F0F16) */
+    --background: 247 27% 7%; /* #0F0F16 */
+    --background-secondary: 240 24% 11%;
+    --foreground: 0 0% 100%;
+
+    /* Card - Enhanced glassmorphism */
+    --card: 240 24% 11%;
+    --card-foreground: 0 0% 100%;
+
+    /* Popover */
+    --popover: 240 24% 11%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary - Electric Violet (#7B61FF) */
+    --primary: 255 100% 69%; /* #7B61FF adjusted for HSL */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Subtle dark tones */
+    --secondary: 240 16% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted - Low contrast elements */
+    --muted: 240 16% 18%;
+    --muted-foreground: 240 10% 65%;
+
+    /* Accent - Neon Cyan (#00F0FF) */
+    --accent: 184 100% 50%;
+    --accent-foreground: 240 27% 7%;
+
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 150 100% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 40 96% 55%;
+    --warning-foreground: 0 0% 0%;
+
+    /* Borders - Subtle, low contrast */
+    --border: 240 16% 18%;
+    --input: 240 16% 18%;
+    --ring: 255 100% 69%;
+
+    /* Border Radius - Smooth, modern */
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(255 100% 69%) 0%, hsl(184 100% 50%) 100%);
+    --gradient-background: linear-gradient(180deg, hsl(247 27% 7%) 0%, hsl(240 24% 11%) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+
+    /* Glow Effects - Soft, controlled light */
+    --glow-primary: 0 0 60px hsl(255 100% 69% / 0.4), 0 0 30px hsl(255 100% 69% / 0.2);
+    --glow-accent: 0 0 50px hsl(184 100% 50% / 0.35), 0 0 25px hsl(184 100% 50% / 0.15);
+    --glow-primary-sm: 0 0 30px hsl(255 100% 69% / 0.3), 0 0 15px hsl(255 100% 69% / 0.15);
+    --glow-accent-sm: 0 0 25px hsl(184 100% 50% / 0.25), 0 0 12px hsl(184 100% 50% / 0.1);
+
+    /* Inner Shadows - Depth and dimension */
+    --inner-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    --inner-glow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.01em;
+    background: hsl(var(--background));
+    /* Aurora Mesh Gradient Background */
+    background-image:
+      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Minimal, spacious typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    font-weight: 700; /* Bolder headings for premium feel */
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism - Refined */
+  .glass-card {
+    background: rgba(15, 15, 22, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Lighter, thinner border */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  
+  .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(15, 15, 22, 0.7);
+  }
+
+  /* Premium Glass */
+  .glass-card-premium {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Shining effect on hover for premium cards */
+  .glass-card-premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: 0.5s;
+    pointer-events: none;
+  }
+  
+  .glass-card-premium:hover::before {
+    left: 100%;
+  }
+
+  /* Glow Effects */
+  .hover-glow-primary {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .hover-glow-primary:hover {
+    box-shadow: var(--glow-primary);
+    transform: translateY(-2px);
+  }
+  
+  .hover-glow-accent {
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  .hover-glow-accent:hover {
+      box-shadow: var(--glow-accent);
+      transform: translateY(-2px);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gradient-text-primary {
+      background: linear-gradient(135deg, hsl(255 100% 69%) 0%, hsl(255 100% 85%) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+
+  /* Gradient Backgrounds */
+  .gradient-bg-primary {
+    background: var(--gradient-primary);
+  }
+  
+  /* Buttons */
+  .btn-premium {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      border-radius: var(--radius);
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .btn-premium:hover {
+      background: hsl(255, 100%, 75%);
+      box-shadow: var(--glow-primary);
+      transform: translateY(-1px);
+  }
+
+  .btn-secondary-premium {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      color: white;
+      font-weight: 500;
+      border-radius: var(--radius);
+      padding: 0.75rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s;
+  }
+
+  .btn-secondary-premium:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Grid Pattern */
+  .grid-pattern {
+    background-size: 50px 50px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  }
+  
+  /* Animation Utilities */
+  .animate-float {
+      animation: float 6s ease-in-out infinite;
+  }
+  
+  .number-highlight {
+      font-variant-numeric: tabular-nums;
+  }
+}
