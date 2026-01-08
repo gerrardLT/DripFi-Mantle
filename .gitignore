@@ -96,3 +96,5 @@ deployments/hardhat/
 mantle-dca/lib/
 mantle-dca/out/
 mantle-dca/cache/
+.kiro/
+.shared/
